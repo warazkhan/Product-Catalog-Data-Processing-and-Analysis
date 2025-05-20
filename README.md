@@ -105,6 +105,8 @@ For a production environment, the following would be required:
 
 ---
 
+![image](https://github.com/user-attachments/assets/8371f9d3-5e3b-482d-a06f-156871a70db6)
+
 **Thank you for reviewing my submission.**
 
 
