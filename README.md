@@ -98,6 +98,7 @@ The following Python packages are required:
 
 For a production environment, the following would be required:
 - Automated ETL/data ingestion
+- Unit testing
 - Logging and monitoring
 - CI/CD pipeline
 - Data validation and alerting
