@@ -1,6 +1,6 @@
 import pandas as pd
 
-def loadCsv(filePath, separator=';'):
+def loadCsv(filePath, separator=','):
 
     try:
         df = pd.read_csv(filePath, sep=separator)
