@@ -114,4 +114,7 @@ To make this project production-ready, consider adding:
 - Consider containerization (e.g., Docker) for environment consistency.
 ---
 
+![image](https://github.com/user-attachments/assets/c2b7c7d3-1b4d-4b68-969c-ae114391abe4)
+
+
 **Thank you for exploring this project!**
