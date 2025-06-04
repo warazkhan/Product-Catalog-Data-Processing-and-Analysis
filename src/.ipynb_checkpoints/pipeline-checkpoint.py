@@ -1,13 +1,11 @@
 import numpy as np
-from config import manufacturersFile, productDescriptionsFile, productPropertiesFile, outputCleanedFile
+from config import manufacturersFile, productDescriptionsFile, productPropertiesFile, outputCleanedFile, badValues
 from ingest_datasets import loadCsv
 from clean import cleanBadValues, dropRowsMissingKeys, dropFullyNullColumns
 from merge import mergeCatalogTables
 from engineer import engineerFeatures
 from analyze import describeDf, printDatasetInfo, getMissingValueReport, getDuplicateReport, describeNumerics
 from visualize import plotCorrelationHeatmap, plotFrequencyGridSmart, plotBoxplotGrid
-
-badValues = ["None", "none", "null", "Null", "n/a", "N/A", "NA", "", " ", "-", "--", "'", "undefined", "missing", "<blank>", "???", "\n", "\t"]
 
 def runPipeline(exportCleaned=True, visualMode=True):
     
@@ -21,9 +19,14 @@ def runPipeline(exportCleaned=True, visualMode=True):
     print("\nLoading Product Descriptions data...")
     productDescriptionsDf = loadCsv(productDescriptionsFile)
     printDatasetInfo(productDescriptionsDf)
+    print("\nDescriptive Statics...")
+    print(describeDf(productDescriptionsDf))
+    
     print("\nLoading Product Properties data...")
     productPropertiesDf = loadCsv(productPropertiesFile)
     printDatasetInfo(productPropertiesDf)
+    print("\nDescriptive Statics...")
+    print(describeDf(productPropertiesDf))
 
     # Drop rows with missing required join keys
     productPropertiesDf.dropna(subset=['Articlenumber', 'Manufacturernumber'], inplace=True)
