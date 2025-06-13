@@ -1,0 +1,22 @@
+[project]
+name = "codechallenge-data-analyst-main"
+version = "0.1.0"
+description = "Product catalog data analysis"
+authors = [
+    { name = "Wara Zubair Khan", email = "113543605+warazkhan@users.noreply.github.com" }
+]
+readme = "README.md"
+requires-python = ">=3.9,<3.10"
+dependencies = [
+    "pandas>=2.3.0,<2.4.0",
+    "numpy>=1.26,<2.0",
+    "seaborn>=0.13,<0.14",
+    "matplotlib>=3.5,<3.6",
+    "pandasql>=0.7,<0.8",
+    "notebook>=7.4,<8.0",
+    "ipykernel>=6.29,<7.0"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

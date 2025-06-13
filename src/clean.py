@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import logging
 from config import badValues
+from config import numericColumnsWithZeroAsNA
 
 logging.basicConfig(
     level=logging.INFO,  
@@ -27,13 +28,11 @@ def cleanBadValues(
             foundBad = True
             df[col] = df[col].replace(badValuesList, np.nan)
 
-    if numericColumns is None:
-        numericColumns = df.select_dtypes(include=[np.number]).columns.tolist()
-
-    for col in numericColumns:
-        if (df[col] == 0).any():
-            foundBad = True
-            df[col] = df[col].replace(0, np.nan)
+    for col in numericColumnsWithZeroAsNA:
+        if col in df.columns:
+            if (df[col] == 0).any():
+                df[col] = df[col].replace(0, np.nan)
+                foundBad = True
 
     if foundBad:
         logger.info("Bad values detected and replaced in the dataset.")
