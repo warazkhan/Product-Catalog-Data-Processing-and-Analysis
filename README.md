@@ -25,20 +25,22 @@ Download the repository as a ZIP file and extract it, or clone it using Git:
 git clone https://github.com/warazkhan/CodeChallenge-Data-Analyst-main.git
 ```
 
-### 2. Install Required Python Packages
+### 2. Install Python Dependencies with Poetry
 
-This project depends on the following Python packages:
+This project uses Poetry for dependency management.
 
-- `pandas` — data manipulation and analysis  
-- `numpy` — numerical operations  
-- `seaborn` — data visualization  
-- `matplotlib` — plotting graphs  
-- `pandasql` — running SQL queries on pandas DataFrames  
-- `logging`, `os`, `sys`, `warnings`, `math` — standard libraries  
-
-Install dependencies using:
+If you don’t have Poetry installed:
 ```bash
-pip install -r requirements.txt
+pip install poetry
+```
+Then install the dependencies:
+```bash
+poetry install
+```
+If you're using Jupyter notebooks, you can activate the Poetry environment as a kernel:
+```bash
+poetry shell
+python -m ipykernel install --user --name=product-catalog --display-name "Python (Product Catalog)"
 ```
 
 ### 3. Run the Data Pipeline
@@ -46,14 +48,14 @@ pip install -r requirements.txt
 Open and run the notebook:
 
 ```bash
-notebooks/product_catalog_pipeline_exploration.ipynb
+notebooks/data_pipeline.ipynb
 ```
 
 This notebook loads raw data from the `data/` folder, performs cleaning and normalization, feature engineering, analysis, and visualization. It also exports a cleaned dataset (`product_catalog_cleaned.csv`).
 
 Alternatively, run the full pipeline from the entry script:
 ```bash
-python main.py
+poetry run python src/main.py
 ```
 
 ### 4. Perform SQL Analysis
@@ -84,11 +86,13 @@ in Power BI Desktop. If prompted, point the data source to your local `data/prod
 | ------------------------------------------------------ | -------------------------------------------------------------- |
 | `dashboard/product_catalog_dashboard.pbix`             | Power BI dashboard file summarizing key project insights        |
 | `data/`                                                | Folder containing raw and cleaned CSV datasets                 |
-| `notebooks/product_catalog_pipeline_exploration.ipynb` | Notebook for pipeline exploration, quick stats, visualizations |
+| `notebooks/data_pipeline.ipynb` | Notebook for pipeline exploration, quick stats, visualizations |
 | `notebooks/product_catalog_sql_analysis.ipynb`         | Notebook demonstrating SQL analysis using pandasql             |
 | `notebooks/pandas_sql_sample.ipynb`                    | Sample notebook showing pandasql usage                         |
 | `src/`                                                 | Modular Python source code for pipeline components             |
-| `main.py`                                              | Entry point script to run the full data processing pipeline    |
+| `src/main.py`                                          | Entry point script to run the full data processing pipeline    |
+| `pyproject.toml`                                       | Poetry configuration and dependency file                      |
+| `poetry.lock`                                          | Locked versions of installed dependencies                      |
 | `.gitignore`                                           | Git ignore configuration file                                 |
 | `README.md`                                            | This project documentation                                    |
 
