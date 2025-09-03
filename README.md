@@ -22,7 +22,7 @@ This project involves:
 Download the repository as a ZIP file and extract it, or clone it using Git:
 
 ```bash 
-git clone https://github.com/warazkhan/CodeChallenge-Data-Analyst-main.git
+git clone https://github.com/warazkhan/Product-Catalog-Data-Processing-and-Analysis.git
 ```
 
 ### 2. Install Python Dependencies with Poetry
